@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy and Architecture</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Glossy Shadow Effect on Page Edges */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            overflow-y: auto; /* Allows scrolling */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Ensures scrolling works */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 
+                        inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .header-container {
+            margin-top: 50px;
+        }
+        h1 {
+	   position: relative;
+    	   z-index: 2;
+     	   font-size: 2.5em; /* Adjust size as needed */
+    	   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 
+                 	0 0 20px rgba(255, 255, 255, 0.5), 
+                 	0 0 30px rgba(255, 255, 255, 0.4);
+	}
+
+        nav {
+            margin-top: 80px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        nav li:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .gallery, .page-content {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid white;
+            display: block;
+        }
+        .image-title {
+            background-color: #d3d3d3;
+            color: black;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .back-btn {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Footer Buttons */
+        .footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+	    flex: 1;
+	    max-width: 150px;
+	    text-align: center;
+        }
+        .footer button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        /* Page Content Styling */
+        .page-content {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>Privacy & Architecture</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="menu-item" id="domestic-btn">Domestic Structures</li>
+                <li class="menu-item" id="public-btn">Public & Civic Buildings</li>
+                <li class="menu-item" id="transport-btn">Transportation Hubs</li>
+            </ul>
+        </nav>
+
+        <button class="back-btn" id="back-home">Return to Home</button>
+
+        <!-- Galleries -->
+        <div class="gallery" id="domestic-gallery">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
+                    <div class="image-title">1800’s Victorian Home</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
+                    <div class="image-title">Servant Staircase</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery" id="public-gallery">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
+                    <div class="image-title">Guggenheim Museum: Perceived Privacy</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
+                    <div class="image-title">France: U.S. Embassy</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery" id="transport-gallery">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://www.treehugger.com/thmb/DGLgkpNuNLWMCZyFS0S4QyxYMDY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Oculus-1b4d1fdfd26a4a179bcc8057f7a13fd2.jpg" alt="WTC">
+                    <div class="image-title">World Trade Center Transportation Hub</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://designto.org/wp-content/uploads/2016/06/3071979497_d9b1011c8d_o.jpg" alt="Menara Airport">
+                    <div class="image-title">Marrakech Menara Airport</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer">
+            <button class="page-button" data-target="about">About</button>
+            <button class="page-button" data-target="goal">Our Goal</button>
+            <button class="page-button" data-target="approach">Our Approach</button>
+            <button class="page-button" data-target="sources">Sources</button>
+        </div>
+
+        <!-- Page Content Sections -->
+        <div class="page-content" id="about">A Historical Analysis of Privacy's Influence on Architectural Design <br><br>
+We aim to present a historical analysis of how the concept of privacy has shaped architectural design across domestic, societal, and transportation spaces from the 18th century to the present day. By investigating the evolution of architectural forms and functions in response to the desire for and violation of privacy, we hope to learn about the relationship between social values and technological advancements in our physical environment.</div>
+
+        <div class="page-content" id="goal">We Investigated Privacy In 3 Areas of Architecture<br><br> 
+Domestic Privacy: <br>To analyze how the design of homes (interior layouts, facades, and landscaping) has evolved in response to changing notions of privacy from the late 1700s to the present day. We will look at the impact of social class, technological advancements (e.g., the introduction of electricity and modern plumbing), and cultural shifts on residential architecture.<br><br>
+Societal Privacy: <br> To investigate the role of privacy in the design of public and civic buildings, such as museums, government structures, and educational institutions, with a particular focus on the period starting with the Industrial Revolution. <br><br> 
+Transportation Privacy: <br> To explore how infringements on privacy, driven by security concerns and technological surveillance, have influenced the design of transportation hubs like airports and train stations from the 20th century to today.</div>
+        <div class="page-content" id="approach">Our Research Approach <br><br>
+Literature Review: <br>We will conduct secondary research using existing scholarly articles, books, and architectural publications related to the history of privacy and its influence on architectural design. Key themes will be identified. <br><br> 
+Case Studies: <br>  We will choose case studies of specific buildings and spaces as examples of the evolving relationship between privacy and architecture. These case studies will be selected to represent different historical periods, building types, and geographical locations. We will interview a property manager to gain insight of privacy features in a modern architecture. <br><br> Archival Research: <br>We will explore architectural archives, scholarly sources, and visual materials to gather primary source data on the design and use of buildings across the three focus areas.</div>
+        <div class="page-content" id="sources">Insert Sources Page Content HERE</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".menu-item").click(function(){
+                $(".gallery, .page-content").hide();
+                $("#back-home").show();
+                $("#" + $(this).attr("id").replace("-btn", "-gallery")).fadeIn();
+            });
+
+            $("#back-home").click(function(){
+                $(".gallery, .page-content").fadeOut();
+                $(this).hide();
+            });
+
+            $(".page-button").click(function(){
+                $(".gallery, .page-content").hide();
+                $("#" + $(this).data("target")).fadeIn();
+            });
+        });
+    </script>
+</body>
+</html>
