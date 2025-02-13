@@ -51,6 +51,17 @@
         nav li:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
+
+	/* Home Page Image */
+        .home-image {
+            width: 80%;
+            max-width: 900px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 2px solid white;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+        }
+
         .gallery, .page-content {
             display: none;
             margin-top: 20px;
@@ -147,6 +158,9 @@
             </ul>
         </nav>
 
+	<!-- Home Screen Image (Under Menu Buttons) -->
+        <img class="home-image" id="home-image" src="https://goenergylink.com/wp-content/uploads/2019/09/Infuse-Sustainability-into-Architectural-Design.webp" alt="Privacy & Architecture">
+	
         <button class="back-btn" id="back-home">Return to Home</button>
 
         <!-- Galleries -->
@@ -215,17 +229,20 @@ Case Studies: <br>  We will choose case studies of specific buildings and spaces
         $(document).ready(function(){
             $(".menu-item").click(function(){
                 $(".gallery, .page-content").hide();
+		$("#home-image").hide();
                 $("#back-home").show();
                 $("#" + $(this).attr("id").replace("-btn", "-gallery")).fadeIn();
             });
 
             $("#back-home").click(function(){
                 $(".gallery, .page-content").fadeOut();
+		$("#home-image").fadeIn();
                 $(this).hide();
             });
 
             $(".page-button").click(function(){
                 $(".gallery, .page-content").hide();
+		$("#home-image").hide();
                 $("#" + $(this).data("target")).fadeIn();
             });
         });
