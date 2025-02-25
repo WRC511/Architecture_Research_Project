@@ -16,8 +16,8 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
-                  inset 0 0 30px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(255,255,255,0.3),
+                  inset 0 0 30px rgba(255,255,255,0.2);
     }
 
     .container {
@@ -25,7 +25,7 @@
     }
 
     .header-container {
-      margin-top: 5px;
+      margin-top: 10px;
     }
 
     h1 {
@@ -34,9 +34,9 @@
       font-size: 2.5em;
       margin-top: 50px;
       padding-top: 30px;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-                   0 0 20px rgba(255, 255, 255, 0.5),
-                   0 0 30px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 0 10px rgba(255,255,255,0.6),
+                   0 0 20px rgba(255,255,255,0.5),
+                   0 0 30px rgba(255,255,255,0.4);
     }
 
     /* Fixed Navigation Bar */
@@ -46,9 +46,21 @@
       left: 0;
       width: 100%;
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       padding: 10px 0;
       z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Hamburger menu icon; hidden on large screens */
+    .menu-icon {
+      font-size: 30px;
+      cursor: pointer;
+      display: none;
+      margin-right: 10px;
     }
 
     .navbar ul {
@@ -78,6 +90,22 @@
       background-color: #4682b4;
     }
 
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar li {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+
     /* Home Screen Image */
     .home-image {
       width: 80%;
@@ -85,7 +113,7 @@
       margin-top: 30px;
       border-radius: 10px;
       border: 2px solid white;
-      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
     }
 
     /* Galleries and Page Content */
@@ -147,15 +175,15 @@
       position: relative;
       width: 90%;
       max-width: 800px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255,255,255,0.1);
       color: white;
       padding: 20px;
       margin: 10px auto;
       border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
       text-align: left;
       display: none;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
 
     /* Close Button for Info Box */
@@ -186,12 +214,12 @@
     .page-content {
       width: 80%;
       max-width: 800px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255,255,255,0.1);
       color: white;
       padding: 30px;
       margin: 50px auto;
       border-radius: 15px;
-      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
       text-align: left;
     }
 
@@ -224,8 +252,9 @@
       <h1>Privacy & Architecture</h1>
     </div>
 
-    <!-- Fixed Navigation Bar -->
+    <!-- Fixed Navigation Bar with Hamburger Icon -->
     <nav class="navbar">
+      <span class="menu-icon">&#9776;</span>
       <ul>
         <li class="nav-item" id="domestic-btn">Domestic Structures</li>
         <li class="nav-item" id="public-btn">Public & Civic Buildings</li>
@@ -247,7 +276,7 @@
           <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
           <button class="image-title">1800’s Victorian Home</button>
           <div class="info-box">
-            Research data for 1800’s Victorian Home goes here. 
+            Research info for 1800’s Victorian Home goes here. 
             <button class="close-info">X</button>
           </div>
         </div>
@@ -255,7 +284,7 @@
           <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
           <button class="image-title">Servant Staircase</button>
           <div class="info-box">
-            Research data for Servant Staircase goes here. 
+            Research info for Servant Staircase goes here. 
             <button class="close-info">X</button>
           </div>
         </div>
@@ -268,7 +297,7 @@
           <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
           <button class="image-title">Guggenheim Museum: Perceived Privacy</button>
           <div class="info-box">
-            Research data for Guggenheim Museum: Perceived Privacy goes here.
+            Research info for Guggenheim Museum: Perceived Privacy goes here.
             <button class="close-info">X</button>
           </div>
         </div>
@@ -276,7 +305,7 @@
           <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
           <button class="image-title">France: U.S. Embassy</button>
           <div class="info-box">
-            Research data for France: U.S. Embassy goes here.
+            Research info for France: U.S. Embassy goes here.
             <button class="close-info">X</button>
           </div>
         </div>
@@ -290,9 +319,10 @@
           <button class="image-title">World Trade Center Transportation Hub</button>
           <div class="info-box">
             The Oculus is a striking piece of contemporary architecture, with its soaring, wing-like exterior that evokes the image of a bird in flight. 
-            Its translucent, white structure creates a dynamic interplay of light and shadow, captivating viewers from the outside.<br>
+            Its translucent, white structure creates a dynamic interplay of light and shadow, captivating viewers from the outside.<br><br>
             Inside, the vast open space is flooded with natural light from a dramatic skylight that underscores the building's modern minimalism. 
             The design seamlessly connects the sculptural exterior to a serene, functional interior, symbolizing renewal and the promise of a vibrant urban future.
+           
             <button class="close-info">X</button>
           </div>
         </div>
@@ -301,7 +331,7 @@
           <button class="image-title">Marrakech Menara Airport</button>
           <div class="info-box">
             Marrakech Menara Airport’s architecture is defined by its expansive, open design that creates a fluid and welcoming environment throughout its terminal spaces. 
-            Floor-to-ceiling glass and airy concourses invite abundant natural light, accentuating the sense of openness.<br>
+            Floor-to-ceiling glass and airy concourses invite abundant natural light, accentuating the sense of openness.<br><br>
             This open layout is not only aesthetically pleasing but also facilitates effective surveillance by providing clear, unobstructed views of public areas. 
             In this way, the design balances a modern, inviting atmosphere with practical security measures that ensure the safety of all travelers.
             <button class="close-info">X</button>
@@ -340,11 +370,20 @@
 
   <script>
     $(document).ready(function(){
+      // Toggle menu when hamburger icon is clicked (on small screens)
+      $(".menu-icon").click(function(){
+        $(".navbar ul").slideToggle();
+      });
+      
       // Handle nav-item clicks
       $(".nav-item").click(function(){
         // Hide galleries, page content, home image, and any open info boxes
         $(".gallery, .page-content, .info-box").hide();
         $("#home-image").hide();
+        // Hide the mobile menu if open (for small screens)
+        if ($(window).width() < 768) {
+          $(".navbar ul").slideUp();
+        }
         // Show the Return Home button
         $("#back-home").show();
         
