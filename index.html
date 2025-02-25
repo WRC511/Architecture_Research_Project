@@ -25,7 +25,7 @@
     }
 
     .header-container {
-      margin-top: 3px;
+      margin-top: 1px;
     }
 
     h1 {
@@ -108,6 +108,7 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      position: relative;
     }
 
     .gallery img {
@@ -143,6 +144,7 @@
 
     /* Info Box Styling (glowy like page content) */
     .info-box {
+      position: relative;
       width: 90%;
       max-width: 800px;
       background-color: rgba(255, 255, 255, 0.1);
@@ -156,6 +158,30 @@
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
+    /* Close Button for Info Box */
+    .close-info {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: steelblue;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(70,130,180,0.5);
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+      font-size: 16px;
+      line-height: 25px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .close-info:hover {
+      background-color: #4682b4;
+    }
+
     /* Page Content Styling */
     .page-content {
       width: 80%;
@@ -167,181 +193,4 @@
       border-radius: 15px;
       box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
       text-align: left;
-    }
-
-    /* Return Home Button (at the bottom) */
-    .back-btn {
-      display: none; /* Initially hidden until a section is shown */
-      background-color: steelblue;
-      color: white;
-      box-shadow: 0 0 10px rgba(70,130,180,0.5);
-      background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      margin: 20px auto;
-      display: block;
-      max-width: 200px;
-    }
-
-    .back-btn:hover {
-      background-color: #4682b4;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header-container">
-      <h1>Privacy & Architecture</h1>
-    </div>
-
-    <!-- Fixed Navigation Bar -->
-    <nav class="navbar">
-      <ul>
-        <li class="nav-item" id="domestic-btn">Domestic Structures</li>
-        <li class="nav-item" id="public-btn">Public & Civic Buildings</li>
-        <li class="nav-item" id="transport-btn">Transportation Hubs</li>
-        <li class="nav-item" data-target="about">About</li>
-        <li class="nav-item" data-target="goal">Our Goal</li>
-        <li class="nav-item" data-target="approach">Our Approach</li>
-        <li class="nav-item" data-target="sources">Sources</li>
-      </ul>
-    </nav>
-
-    <!-- Home Screen Image -->
-    <img class="home-image" id="home-image" src="https://goenergylink.com/wp-content/uploads/2019/09/Infuse-Sustainability-into-Architectural-Design.webp" alt="Privacy & Architecture">
-
-    <!-- Galleries -->
-    <div class="gallery" id="domestic-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
-          <button class="image-title">1800’s Victorian Home</button>
-          <div class="info-box">
-            Research data for 1800’s Victorian Home goes here. 
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
-          <button class="image-title">Servant Staircase</button>
-          <div class="info-box">
-            Research data for Servant Staircase goes here.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery" id="public-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
-          <button class="image-title">Guggenheim Museum: Perceived Privacy</button>
-          <div class="info-box">
-            Research data for Guggenheim Museum: Perceived Privacy goes here.
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
-          <button class="image-title">France: U.S. Embassy</button>
-          <div class="info-box">
-            Research data for France: U.S. Embassy goes here.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery" id="transport-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://www.treehugger.com/thmb/DGLgkpNuNLWMCZyFS0S4QyxYMDY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Oculus-1b4d1fdfd26a4a179bcc8057f7a13fd2.jpg" alt="WTC">
-          <button class="image-title">World Trade Center Transportation Hub</button>
-          <div class="info-box">
-            Research data for World Trade Center Transportation Hub goes here.
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://designto.org/wp-content/uploads/2016/06/3071979497_d9b1011c8d_o.jpg" alt="Menara Airport">
-          <button class="image-title">Marrakech Menara Airport</button>
-          <div class="info-box">
-            Research data for Marrakech Menara Airport goes here.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Page Content Sections -->
-    <div class="page-content" id="about">
-      A Historical Analysis of Privacy's Influence on Architectural Design <br><br>
-      We aim to present a historical analysis of how the concept of privacy has shaped architectural design across domestic, societal, and transportation spaces from the 18th century to the present day. By investigating the evolution of architectural forms and functions in response to the desire for and violation of privacy, we hope to learn about the relationship between social values and technological advancements in our physical environment.
-    </div>
-
-    <div class="page-content" id="goal">
-      We Investigated Privacy In 3 Areas of Architecture<br><br>
-      Domestic Privacy: <br>To analyze how the design of homes (interior layouts, facades, and landscaping) has evolved in response to changing notions of privacy from the late 1700s to the present day. We will look at the impact of social class, technological advancements (e.g., the introduction of electricity and modern plumbing), and cultural shifts on residential architecture.<br><br>
-      Societal Privacy: <br>To investigate the role of privacy in the design of public and civic buildings, such as museums, government structures, and educational institutions, with a particular focus on the period starting with the Industrial Revolution.<br><br>
-      Transportation Privacy: <br>To explore how infringements on privacy, driven by security concerns and technological surveillance, have influenced the design of transportation hubs like airports and train stations from the 20th century to today.
-    </div>
-
-    <div class="page-content" id="approach">
-      Our Research Approach <br><br>
-      Literature Review: <br>We will conduct secondary research using existing scholarly articles, books, and architectural publications related to the history of privacy and its influence on architectural design. Key themes will be identified.<br><br>
-      Case Studies: <br>We will choose case studies of specific buildings and spaces as examples of the evolving relationship between privacy and architecture. These case studies will be selected to represent different historical periods, building types, and geographical locations. We will interview a property manager to gain insight into privacy features in modern architecture.<br><br>
-      Archival Research: <br>We will explore architectural archives, scholarly sources, and visual materials to gather primary source data on the design and use of buildings across the three focus areas.
-    </div>
-
-    <div class="page-content" id="sources">
-      Insert Sources Page Content HERE
-    </div>
-
-    <!-- Return Home Button at the Bottom -->
-    <button class="back-btn" id="back-home">Return Home</button>
-  </div>
-
-  <script>
-    $(document).ready(function(){
-      // Handle nav-item clicks
-      $(".nav-item").click(function(){
-        // Hide galleries, page content, home image, and any open info boxes
-        $(".gallery, .page-content, .info-box").hide();
-        $("#home-image").hide();
-        // Show the Return Home button
-        $("#back-home").show();
-        
-        // If the nav item has a data-target, show that content; otherwise show gallery
-        if ($(this).data("target")) {
-          $("#" + $(this).data("target")).fadeIn();
-        } else {
-          var galleryId = $(this).attr("id").replace("-btn", "-gallery");
-          $("#" + galleryId).fadeIn();
-        }
-      });
-      
-      // Handle Return Home button click
-      $("#back-home").click(function(){
-        $(".gallery, .page-content, .info-box").fadeOut();
-        $("#home-image").fadeIn();
-        $(this).hide();
-      });
-      
-      // Toggle info box when an image title button is clicked
-      $(".image-title").click(function(e){
-        e.stopPropagation(); // Prevent triggering other click events
-        $(this).siblings(".info-box").slideToggle();
-      });
-      
-      // Adjust all nav items to have the same width as the largest button.
-      var maxWidth = 0;
-      $(".navbar li").each(function(){
-        var currentWidth = $(this).outerWidth();
-        if (currentWidth > maxWidth) {
-          maxWidth = currentWidth;
-        }
-      });
-      $(".navbar li").css("width", maxWidth + "px");
-    });
-  </script>
-</body>
-</html>
+   
