@@ -25,7 +25,7 @@
     }
 
     .header-container {
-      margin-top: 5px; 
+      margin-top: 3px;
     }
 
     h1 {
@@ -119,16 +119,41 @@
       display: block;
     }
 
+    /* Image Title Button (styled like navbar buttons) */
     .image-title {
-      background-color: #d3d3d3;
-      color: black;
-      padding: 10px;
+      background-color: steelblue;
+      color: white;
+      box-shadow: 0 0 10px rgba(70,130,180,0.5);
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
       margin-top: 10px;
-      border-radius: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
       font-size: 16px;
       width: 90%;
       max-width: 800px;
       text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .image-title:hover {
+      background-color: #4682b4;
+    }
+
+    /* Info Box Styling (glowy like page content) */
+    .info-box {
+      width: 90%;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+      text-align: left;
+      display: none;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
     /* Page Content Styling */
@@ -194,11 +219,17 @@
       <div class="gallery-container">
         <div class="gallery-item">
           <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
-          <div class="image-title">1800’s Victorian Home</div>
+          <button class="image-title">1800’s Victorian Home</button>
+          <div class="info-box">
+            Research data for 1800’s Victorian Home goes here. 
+          </div>
         </div>
         <div class="gallery-item">
           <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
-          <div class="image-title">Servant Staircase</div>
+          <button class="image-title">Servant Staircase</button>
+          <div class="info-box">
+            Research data for Servant Staircase goes here.
+          </div>
         </div>
       </div>
     </div>
@@ -207,11 +238,17 @@
       <div class="gallery-container">
         <div class="gallery-item">
           <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
-          <div class="image-title">Guggenheim Museum: Perceived Privacy</div>
+          <button class="image-title">Guggenheim Museum: Perceived Privacy</button>
+          <div class="info-box">
+            Research data for Guggenheim Museum: Perceived Privacy goes here.
+          </div>
         </div>
         <div class="gallery-item">
           <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
-          <div class="image-title">France: U.S. Embassy</div>
+          <button class="image-title">France: U.S. Embassy</button>
+          <div class="info-box">
+            Research data for France: U.S. Embassy goes here.
+          </div>
         </div>
       </div>
     </div>
@@ -220,11 +257,17 @@
       <div class="gallery-container">
         <div class="gallery-item">
           <img src="https://www.treehugger.com/thmb/DGLgkpNuNLWMCZyFS0S4QyxYMDY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Oculus-1b4d1fdfd26a4a179bcc8057f7a13fd2.jpg" alt="WTC">
-          <div class="image-title">World Trade Center Transportation Hub</div>
+          <button class="image-title">World Trade Center Transportation Hub</button>
+          <div class="info-box">
+            Research data for World Trade Center Transportation Hub goes here.
+          </div>
         </div>
         <div class="gallery-item">
           <img src="https://designto.org/wp-content/uploads/2016/06/3071979497_d9b1011c8d_o.jpg" alt="Menara Airport">
-          <div class="image-title">Marrakech Menara Airport</div>
+          <button class="image-title">Marrakech Menara Airport</button>
+          <div class="info-box">
+            Research data for Marrakech Menara Airport goes here.
+          </div>
         </div>
       </div>
     </div>
@@ -259,30 +302,34 @@
 
   <script>
     $(document).ready(function(){
+      // Handle nav-item clicks
       $(".nav-item").click(function(){
-        // Hide all galleries, page content, and the home image
-        $(".gallery, .page-content").hide();
+        // Hide galleries, page content, home image, and any open info boxes
+        $(".gallery, .page-content, .info-box").hide();
         $("#home-image").hide();
         // Show the Return Home button
         $("#back-home").show();
         
-        // If the nav item has a data-target attribute, show the corresponding page-content section.
+        // If the nav item has a data-target, show that content; otherwise show gallery
         if ($(this).data("target")) {
           $("#" + $(this).data("target")).fadeIn();
         } else {
-          // Otherwise, assume it is a gallery button (ids like domestic-btn).
           var galleryId = $(this).attr("id").replace("-btn", "-gallery");
           $("#" + galleryId).fadeIn();
         }
       });
       
+      // Handle Return Home button click
       $("#back-home").click(function(){
-        // Hide all galleries and page content.
-        $(".gallery, .page-content").fadeOut();
-        // Show the home image.
+        $(".gallery, .page-content, .info-box").fadeOut();
         $("#home-image").fadeIn();
-        // Hide the Return Home button.
         $(this).hide();
+      });
+      
+      // Toggle info box when an image title button is clicked
+      $(".image-title").click(function(e){
+        e.stopPropagation(); // Prevent triggering other click events
+        $(this).siblings(".info-box").slideToggle();
       });
       
       // Adjust all nav items to have the same width as the largest button.
