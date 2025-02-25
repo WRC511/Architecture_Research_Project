@@ -69,6 +69,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       font-weight: bold;
+      text-align: center;
     }
 
     .navbar li:hover {
@@ -281,6 +282,16 @@
         // Hide the Return Home button.
         $(this).hide();
       });
+      
+      // Adjust all nav items to have the same width as the largest button.
+      var maxWidth = 0;
+      $(".navbar li").each(function(){
+        var currentWidth = $(this).outerWidth();
+        if (currentWidth > maxWidth) {
+          maxWidth = currentWidth;
+        }
+      });
+      $(".navbar li").css("width", maxWidth + "px");
     });
   </script>
 </body>
