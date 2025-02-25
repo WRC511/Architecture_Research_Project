@@ -416,14 +416,17 @@
       });
       
       // Adjust all nav items to have the same width as the largest button.
-      var maxWidth = 0;
-      $(".navbar li").each(function(){
-        var currentWidth = $(this).outerWidth();
-        if (currentWidth > maxWidth) {
-          maxWidth = currentWidth;
-        }
+      if ($(window).width() > 768) {
+        var maxWidth = 0;
+        $(".navbar li").each(function(){
+          var currentWidth = $(this).outerWidth();
+          if (currentWidth > maxWidth) {
+            maxWidth = currentWidth;
+          }
       });
-      $(".navbar li").css("width", maxWidth + "px");
+    $(".navbar li").css("width", maxWidth + "px");
+  }
+
     });
   </script>
 </body>
