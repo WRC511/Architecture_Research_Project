@@ -133,25 +133,26 @@
 
         .gallery-item {
             display: flex;
-            justify-content: center;
+            justify-content: left; /* Align items to the left */
             align-items: center;
             margin-bottom: 20px;
             width: 90%;
-            max-width: 800px;
+            max-width: 1200px; /* Increased max width */
         }
 
         .gallery img {
-            width: 50%;
+            width: 500px; /* Increased image width */
             height: auto;
             border-radius: 5px;
             border: 2px solid white;
             display: block;
+            margin-right: 20px; /* Add spacing between image and info-box */
         }
 
         /* Info Box Styling (glowy like page content) */
         .info-box {
             position: relative;
-            width: 50%;
+            width: 500px; /* Make info-box the same width as the image */
             background-color: rgba(255,255,255,0.1);
             color: white;
             padding: 20px;
@@ -159,7 +160,6 @@
             box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
             text-align: left;
             display: block;
-             position: relative;
         }
 
         /* Page Content Styling */
