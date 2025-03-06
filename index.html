@@ -1,225 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy and Architecture</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    /* Global Styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a2e;
-      color: white;
-      text-align: center;
-      overflow-y: auto;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3),
-                  inset 0 0 30px rgba(255,255,255,0.2);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy and Architecture</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            overflow-y: auto;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3),
+            inset 0 0 30px rgba(255,255,255,0.2);
+        }
 
-    .container {
-      margin-top: 100px; /* Space for fixed navbar */
-    }
+        .container {
+            margin-top: 100px; /* Space for fixed navbar */
+        }
 
-    .header-container {
-      margin-top: 10px;
-    }
+        .header-container {
+            margin-top: 10px;
+        }
 
-    h1 {
-      position: relative;
-      z-index: 2;
-      font-size: 2.5em;
-      margin-top: 50px;
-      padding-top: 30px;
-      text-shadow: 0 0 10px rgba(255,255,255,0.6),
-                   0 0 20px rgba(255,255,255,0.5),
-                   0 0 30px rgba(255,255,255,0.4);
-    }
+        h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 2.5em;
+            margin-top: 50px;
+            padding-top: 30px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.6),
+            0 0 20px rgba(255,255,255,0.5),
+            0 0 30px rgba(255,255,255,0.4);
+        }
 
-    /* Fixed Navigation Bar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #D3D3D3;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 10px 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+        /* Fixed Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #D3D3D3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    /* Hamburger menu icon; hidden on large screens */
-    .menu-icon {
-      font-size: 30px;
-      cursor: pointer;
-      display: none;
-      margin-right: 10px;
-    }
+        /* Hamburger menu icon; hidden on large screens */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            margin-right: 10px;
+        }
 
-    .navbar ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .navbar ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .navbar li {
-      background-color: steelblue;
-      color: white;
-      box-shadow: 0 0 10px rgba(70,130,180,0.5);
-      background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      margin: 0 10px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
-      text-align: center;
-    }
+        .navbar li {
+            background-color: steelblue;
+            color: white;
+            box-shadow: 0 0 10px rgba(70,130,180,0.5);
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
 
-    .navbar li:hover {
-      background-color: #4682b4;
-    }
+        .navbar li:hover {
+            background-color: #4682b4;
+        }
 
-    /* Responsive adjustments */
-    @media screen and (max-width: 768px) {
-      .menu-icon {
-        display: block;
-      }
-      .navbar ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-      }
-      .navbar li {
-        width: 100%;
-        margin: 5px 0;
-      }
-    }
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar li {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
 
-    /* Home Screen Image */
-    .home-image {
-      width: 80%;
-      max-width: 900px;
-      margin-top: 30px;
-      border-radius: 10px;
-      border: 2px solid white;
-      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
-    }
+        /* Home Screen Image */
+        .home-image {
+            width: 80%;
+            max-width: 900px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 2px solid white;
+            box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
+        }
 
-    /* Galleries and Page Content */
-    .gallery, .page-content {
-      display: none;
-      margin-top: 20px;
-      text-align: left;
-      width: 100%;
-    }
+        /* Galleries and Page Content */
+        .gallery, .page-content {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            width: 100%;
+        }
 
-    .gallery-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
 
-    .gallery-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-      width: 90%;
-      max-width: 800px;
-    }
+        .gallery-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
 
-    .gallery img {
-      width: 50%;
-      height: auto;
-      border-radius: 5px;
-      border: 2px solid white;
-      display: block;
-    }
+        .gallery img {
+            width: 50%;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid white;
+            display: block;
+        }
 
-  
+        /* Info Box Styling (glowy like page content) */
+        .info-box {
+            position: relative;
+            width: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
+            text-align: left;
+            display: block;
+        }
 
-    /* Info Box Styling (glowy like page content) */
-    .info-box {
-      position: relative;
-      width: 50%;
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
-      text-align: left;
-      display: block;
-    }
+        /* Page Content Styling */
+        .page-content {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
+            text-align: left;
+            position: relative;
+        }
 
-    /* Page Content Styling */
-    .page-content {
-      width: 80%;
-      max-width: 800px;
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-      padding: 30px;
-      margin: 50px auto;
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
-      text-align: left;
-      position: relative; 
-    }
+        /* Return Home Button (at the bottom) */
+        .return-home {
+            background-color: steelblue;
+            color: white;
+            box-shadow: 0 0 10px rgba(70,130,180,0.5);
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 20px auto;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-    /* Return Home Button (at the bottom) */
-    .return-home {
-      display: none; /* Initially hidden until a section is shown */
-      background-color: steelblue;
-      color: white;
-      box-shadow: 0 0 10px rgba(70,130,180,0.5);
-      background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      margin: 20px auto;
-      display: block;
-      position: absolute;
-      bottom: 10px;
-      transform: translateX(-50%);
-    }
-
-    .return-home:hover {
-      background-color: #4682b4;
-    }
-  </style>
+        .return-home:hover {
+            background-color: #4682b4;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="header-container">
-      <h1>Privacy & Architecture</h1>
+        <h1>Privacy & Architecture</h1>
     </div>
 
     <!-- Fixed Navigation Bar with Hamburger Icon -->
     <nav class="navbar">
-      <span class="menu-icon">&#9776;</span>
-      <ul>
-        <li class="nav-item" id="domestic-btn">Domestic Structures</li>
-        <li class="nav-item" id="public-btn">Public & Civic Buildings</li>
-        <li class="nav-item" id="transport-btn">Transportation Hubs</li>
-        <li class="nav-item" data-target="about">About</li>
-        <li class="nav-item" data-target="goal">Our Goal</li>
-        <li class="nav-item" data-target="approach">Our Approach</li>
-        <li class="nav-item" data-target="sources">Sources</li>
-      </ul>
+        <span class="menu-icon">&#9776;</span>
+        <ul>
+            <li class="nav-item" id="domestic-btn">Domestic Structures</li>
+            <li class="nav-item" id="public-btn">Public & Civic Buildings</li>
+            <li class="nav-item" id="transport-btn">Transportation Hubs</li>
+            <li class="nav-item" data-target="about">About</li>
+            <li class="nav-item" data-target="goal">Our Goal</li>
+            <li class="nav-item" data-target="approach">Our Approach</li>
+            <li class="nav-item" data-target="sources">Sources</li>
+        </ul>
     </nav>
 
     <!-- Home Screen Image -->
@@ -227,155 +224,153 @@
 
     <!-- Galleries -->
     <div class="gallery" id="domestic-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
-          <div class="info-box">
-            Research info for 1800’s Victorian Home goes here. 
-            <button class=“return-home”>Return Home</button>
-          </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://www.martinco.com/wp-content/uploads/2024/04/210921-mc-house_593388650.jpg" alt="Domestic Structure">
+                <div class="info-box">
+                    Research info for 1800’s Victorian Home goes here.
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
+                <div class="info-box">
+                    Research info for Servant Staircase goes here.
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://cdn.homedsgn.com/wp-content/uploads/2018/01/FIL-House-10.jpg" alt="Domestic Structure">
+                <div class="info-box">
+                    Research data for Modern Open-concept Design goes here.
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-          <img src="https://mansionmusings.wordpress.com/wp-content/uploads/2021/08/habs-entry-hall-cropped.jpg?w=680&h=1020" alt="Domestic Structure">
-          <div class="info-box">
-            Research info for Servant Staircase goes here. 
-            <button class=“return-home”>Return Home</button>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://cdn.homedsgn.com/wp-content/uploads/2018/01/FIL-House-10.jpg" alt="Domestic Structure">
-          <div class="info-box">
-            Research data for Modern Open-concept Design goes here. 
-            <button class=“return-home”>Return Home</button>
-          </div>
-        </div>
-      </div>
     </div>
-
     <div class="gallery" id="public-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
-           <div class="info-box">
-            Research info for Guggenheim Museum: Perceived Privacy goes here.
-            <button class=“return-home”>Return Home</button>
-          </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://news.artnet.com/app/news-upload/2019/09/45366562171_e4fbc92c84_o-1024x683.jpg" alt="Public Building">
+                <div class="info-box">
+                    Research info for Guggenheim Museum: Perceived Privacy goes here.
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
+                <div class="info-box">
+                    Research info for France: U.S. Embassy goes here.
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-          <img src="https://archive-share.america.gov/wp-content/uploads/2017/10/Paris-Rothschild-copyright-Elizabeth-Gill-Lui.jpg" alt="Civic Building">
-          <div class="info-box">
-            Research info for France: U.S. Embassy goes here.
-            <button class=“return-home”>Return Home</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="gallery" id="transport-gallery">
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="https://www.treehugger.com/thmb/DGLgkpNuNLWMCZyFS0S4QyxYMDY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Oculus-1b4d1fdfd26a4a179bcc8057f7a13fd2.jpg" alt="WTC">
-           <div class="info-box">
-            The Oculus is a striking piece of contemporary architecture, with its soaring, wing-like exterior that evokes the image of a bird in flight. 
-            Its translucent, white structure creates a dynamic interplay of light and shadow, captivating viewers from the outside.<br><br>
-            Inside, the vast open space is flooded with natural light from a dramatic skylight that underscores the building's modern minimalism. 
-            The design seamlessly connects the sculptural exterior to a serene, functional interior, symbolizing renewal and the promise of a vibrant urban future.
-           
-            <button class=“return-home”>Return Home</button>
-          </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://www.treehugger.com/thmb/DGLgkpNuNLWMCZyFS0S4QyxYMDY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Oculus-1b4d1fdfd26a4a179bcc8057f7a13fd2.jpg" alt="WTC">
+                <div class="info-box">
+                    The Oculus is a striking piece of contemporary architecture, with its soaring, wing-like exterior that evokes the image of a bird in flight.
+                    Its translucent, white structure creates a dynamic interplay of light and shadow, captivating viewers from the outside.<br><br>
+                    Inside, the vast open space is flooded with natural light from a dramatic skylight that underscores the building's modern minimalism.
+                    The design seamlessly connects the sculptural exterior to a serene, functional interior, symbolizing renewal and the promise of a vibrant urban future.
+
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://designto.org/wp-content/uploads/2016/06/3071979497_d9b1011c8d_o.jpg" alt="Menara Airport">
+                <div class="info-box">
+                    Marrakech Menara Airport’s architecture is defined by its expansive, open design that creates a fluid and welcoming environment throughout its terminal spaces.
+                    Floor-to-ceiling glass and airy concourses invite abundant natural light, accentuating the sense of openness.<br><br>
+                    This open layout is not only aesthetically pleasing but also facilitates effective surveillance by providing clear, unobstructed views of public areas.
+                    In this way, the design balances a modern, inviting atmosphere with practical security measures that ensure the safety of all travelers.<br>
+                    <button class="return-home">Return Home</button>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-          <img src="https://designto.org/wp-content/uploads/2016/06/3071979497_d9b1011c8d_o.jpg" alt="Menara Airport">
-          <div class="info-box">
-            Marrakech Menara Airport’s architecture is defined by its expansive, open design that creates a fluid and welcoming environment throughout its terminal spaces. 
-            Floor-to-ceiling glass and airy concourses invite abundant natural light, accentuating the sense of openness.<br><br>
-            This open layout is not only aesthetically pleasing but also facilitates effective surveillance by providing clear, unobstructed views of public areas. 
-            In this way, the design balances a modern, inviting atmosphere with practical security measures that ensure the safety of all travelers.<br>
-            <button class=“return-home”>Return Home</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Page Content Sections -->
     <div class="page-content" id="about">
-      A Historical Analysis of Privacy's Influence on Architectural Design <br><br>
-      We aim to present a historical analysis of how the concept of privacy has shaped architectural design across domestic, societal, and transportation spaces from the 18th century to the present day. By investigating the evolution of architectural forms and functions in response to the desire for and violation of privacy, we hope to learn about the relationship between social values and technological advancements in our physical environment.
-	<button class=“return-home”>Return Home</button>
+        A Historical Analysis of Privacy's Influence on Architectural Design <br><br>
+        We aim to present a historical analysis of how the concept of privacy has shaped architectural design across domestic, societal, and transportation spaces from the 18th century to the present day. By investigating the evolution of architectural forms and functions in response to the desire for and violation of privacy, we hope to learn about the relationship between social values and technological advancements in our physical environment.
+        <button class="return-home">Return Home</button>
     </div>
 
     <div class="page-content" id="goal">
-      We Investigated Privacy In 3 Areas of Architecture<br><br>
-      Domestic Privacy: <br>To analyze how the design of homes (interior layouts, facades, and landscaping) has evolved in response to changing notions of privacy from the late 1700s to the present day. We will look at the impact of social class, technological advancements (e.g., the introduction of electricity and modern plumbing), and cultural shifts on residential architecture.<br><br>
-      Societal Privacy: <br>To investigate the role of privacy in the design of public and civic buildings, such as museums, government structures, and educational institutions, with a particular focus on the period starting with the Industrial Revolution.<br><br>
-      Transportation Privacy: <br>To explore how infringements on privacy, driven by security concerns and technological surveillance, have influenced the design of transportation hubs like airports and train stations from the 20th century to today.
-	<button class=“return-home”>Return Home</button>
+        We Investigated Privacy In 3 Areas of Architecture<br><br>
+        Domestic Privacy: <br>To analyze how the design of homes (interior layouts, facades, and landscaping) has evolved in response to changing notions of privacy from the late 1700s to the present day. We will look at the impact of social class, technological advancements (e.g., the introduction of electricity and modern plumbing), and cultural shifts on residential architecture.<br><br>
+        Societal Privacy: <br>To investigate the role of privacy in the design of public and civic buildings, such as museums, government structures, and educational institutions, with a particular focus on the period starting with the Industrial Revolution.<br><br>
+        Transportation Privacy: <br>To explore how infringements on privacy, driven by security concerns and technological surveillance, have influenced the design of transportation hubs like airports and train stations from the 20th century to today.
+        <button class="return-home">Return Home</button>
     </div>
 
     <div class="page-content" id="approach">
-      Our Research Approach <br><br>
-      Literature Review: <br>We will conduct secondary research using existing scholarly articles, books, and architectural publications related to the history of privacy and its influence on architectural design. Key themes will be identified.<br><br>
-      Case Studies: <br>We will choose case studies of specific buildings and spaces as examples of the evolving relationship between privacy and architecture. These case studies will be selected to represent different historical periods, building types, and geographical locations. We will interview a property manager to gain insight into privacy features in modern architecture.<br><br>
-      Archival Research: <br>We will explore architectural archives, scholarly sources, and visual materials to gather primary source data on the design and use of buildings across the three focus areas.
-	<button class=“return-home”>Return Home</button>
+        Our Research Approach <br><br>
+        Literature Review: <br>We will conduct secondary research using existing scholarly articles, books, and architectural publications related to the history of privacy and its influence on architectural design. Key themes will be identified.<br><br>
+        Case Studies: <br>We will choose case studies of specific buildings and spaces as examples of the evolving relationship between privacy and architecture. These case studies will be selected to represent different historical periods, building types, and geographical locations. We will interview a property manager to gain insight into privacy features in modern architecture.<br><br>
+        Archival Research: <br>We will explore architectural archives, scholarly sources, and visual materials to gather primary source data on the design and use of buildings across the three focus areas.
+        <button class="return-home">Return Home</button>
     </div>
 
     <div class="page-content" id="sources">
-      Insert Sources Page Content HERE
-	<button class=“return-home”>Return Home</button>
+        Insert Sources Page Content HERE
+        <button class="return-home">Return Home</button>
     </div>
 
-   
-  </div>
 
-  <script>
+</div>
+
+<script>
     $(document).ready(function(){
-      // Toggle menu when hamburger icon is clicked (on small screens)
-      $(".menu-icon").click(function(){
-        $(".navbar ul").slideToggle();
-      });
-      
-      // Handle nav-item clicks
-      $(".nav-item").click(function(){
-        // Hide galleries, page content, home image, and any open info boxes
-        $(".gallery, .page-content, .info-box").hide();
-        $("#home-image").hide();
-        // Hide the mobile menu if open (for small screens)
-        if ($(window).width() < 768) {
-          $(".navbar ul").slideUp();
+        // Toggle menu when hamburger icon is clicked (on small screens)
+        $(".menu-icon").click(function(){
+            $(".navbar ul").slideToggle();
+        });
+
+        // Handle nav-item clicks
+        $(".nav-item").click(function(){
+            // Hide galleries, page content, home image, and any open info boxes
+            $(".gallery, .page-content, .info-box").hide();
+            $("#home-image").hide();
+            // Hide the mobile menu if open (for small screens)
+            if ($(window).width() < 768) {
+                $(".navbar ul").slideUp();
+            }
+
+
+            // If the nav item has a data-target, show that content; otherwise show gallery
+            if ($(this).data("target")) {
+                $("#" + $(this).data("target")).fadeIn();
+            } else {
+                var galleryId = $(this).attr("id").replace("-btn", "-gallery");
+                $("#" + galleryId).fadeIn();
+            }
+        });
+
+        // Handle Return Home button click
+        $(document).on("click", ".return-home", function(){
+            $(".gallery, .page-content, .info-box").fadeOut(); // Hide all relevant elements
+            $("#home-image").fadeIn(); // Show the home image
+        });
+
+
+        // Adjust all nav items to have the same width as the largest button.
+        if ($(window).width() > 768) {
+            var maxWidth = 0;
+            $(".navbar li").each(function(){
+                var currentWidth = $(this).outerWidth();
+                if (currentWidth > maxWidth) {
+                    maxWidth = currentWidth;
+                }
+            });
+            $(".navbar li").css("width", maxWidth + "px");
         }
- 
-        
-        // If the nav item has a data-target, show that content; otherwise show gallery
-        if ($(this).data("target")) {
-          $("#" + $(this).data("target")).fadeIn();
-        } else {
-          var galleryId = $(this).attr("id").replace("-btn", "-gallery");
-          $("#" + galleryId).fadeIn();
-        }
-      });
-      
-      // Handle Return Home button click
-      $(“#return-home").click(function(){
-        $(".gallery, .page-content").fadeOut();
-        $("#home-image").fadeIn();
-        $(this).hide();
-      });
-      
-      
-      // Adjust all nav items to have the same width as the largest button.
-      if ($(window).width() > 768) {
-        var maxWidth = 0;
-        $(".navbar li").each(function(){
-          var currentWidth = $(this).outerWidth();
-          if (currentWidth > maxWidth) {
-            maxWidth = currentWidth;
-          }
-      });
-    $(".navbar li").css("width", maxWidth + "px");
-  }
 
     });
-  </script>
+</script>
 </body>
 </html>
