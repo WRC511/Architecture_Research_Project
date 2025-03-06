@@ -132,26 +132,28 @@
         }
 
         .gallery-item {
-            display: flex;
-            align-items: flex-start;
+            display: flex; /* Align children horizontally */
+            align-items: flex-start; /* Align items to the top */
+            justify-content: flex-start; /* Align items to the left */
             margin-bottom: 20px;
             width: 90%;
             max-width: 1200px;
         }
 
+
         .gallery img {
-            width: 500px;
+            width: 500px; /* Fixed width for consistency */
             height: auto;
             border-radius: 5px;
             border: 2px solid white;
             display: block;
-            margin-right: 20px;
-            flex-shrink: 0;
+            margin-right: 20px; /* Space between image and info box */
+            flex-shrink: 0; /* Prevent image from shrinking */
         }
 
-        /* Info Box Styling (glowy like page content) */
+
         .info-box {
-            width: 500px;
+            width: calc(100% - 520px); /* Dynamically adjust width based on image size + spacing */
             background-color: rgba(255,255,255,0.1);
             color: white;
             padding: 20px;
@@ -159,6 +161,7 @@
             box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
             text-align: left;
         }
+
 
         /* Page Content Styling */
         .page-content {
@@ -324,43 +327,42 @@
 </div>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         // Toggle menu when hamburger icon is clicked (on small screens)
-        $(".menu-icon").click(function(){
+        $(".menu-icon").click(function () {
             $(".navbar ul").slideToggle();
         });
 
         // Handle nav-item clicks
-        $(".nav-item").click(function(){
-            // Hide galleries, page content, home image, and any open info boxes
+        $(".nav-item").click(function () {
+            // Hide all galleries, page content, home image, and any open info boxes
             $(".gallery, .page-content, .info-box").hide();
             $("#home-image").hide();
+
             // Hide the mobile menu if open (for small screens)
             if ($(window).width() < 768) {
                 $(".navbar ul").slideUp();
             }
 
-
-            // If the nav item has a data-target, show that content; otherwise show gallery
+            // If the nav item has a data-target attribute, show that content; otherwise show gallery
             if ($(this).data("target")) {
-                $("#" + $(this).data("target")).fadeIn();
+                $("#" + $(this).data("target")).fadeIn(); // Show specific page content
             } else {
-                var galleryId = $(this).attr("id").replace("-btn", "-gallery");
-                $("#" + galleryId).fadeIn();
+                var galleryId = $(this).attr("id").replace("-btn", "-gallery"); // Get gallery ID
+                $("#" + galleryId).fadeIn(); // Show the corresponding gallery
             }
         });
 
         // Handle Return Home button click
-        $(document).on("click", ".return-home", function(){
-            $(".gallery, .page-content, .info-box").fadeOut();
-            $("#home-image").fadeIn();
+        $(document).on("click", ".return-home", function () {
+            $(".gallery, .page-content, .info-box").fadeOut(); // Hide all relevant elements
+            $("#home-image").fadeIn(); // Show the home image
         });
 
-
-        // Adjust all nav items to have the same width as the largest button.
-        if ($(window).width() > 768) {
+        // Adjust all nav items to have the same width as the largest button
+        function adjustNavButtonWidths() {
             var maxWidth = 0;
-            $(".navbar li").each(function(){
+            $(".navbar li").each(function () {
                 var currentWidth = $(this).outerWidth();
                 if (currentWidth > maxWidth) {
                     maxWidth = currentWidth;
@@ -369,7 +371,13 @@
             $(".navbar li").css("width", maxWidth + "px");
         }
 
+        // Call adjustNavButtonWidths on page load and window resize
+        adjustNavButtonWidths();
+        $(window).resize(function () {
+            adjustNavButtonWidths();
+        });
     });
 </script>
+
 </body>
 </html>
