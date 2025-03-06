@@ -140,9 +140,8 @@
             max-width: 1200px;
         }
 
-
-        .gallery img {
-            width: 500px; /* Fixed width for consistency */
+        .gallery-imgage {
+            width: 550px; /* Fixed width for consistency */
             height: auto;
             border-radius: 5px;
             border: 2px solid white;
@@ -150,7 +149,13 @@
             margin-right: 20px; /* Space between image and info box */
             flex-shrink: 0; /* Prevent image from shrinking */
         }
-
+        .gallery-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid white;
+            display: block;
+        }
 
         .info-box {
             width: calc(100% - 520px); /* Dynamically adjust width based on image size + spacing */
