@@ -159,6 +159,7 @@
             box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
             text-align: left;
             display: block;
+             position: relative;
         }
 
         /* Page Content Styling */
@@ -324,54 +325,53 @@
 
 </div>
 
-  <script>
+<script>
     $(document).ready(function(){
-      // Toggle menu when hamburger icon is clicked (on small screens)
-      $(".menu-icon").click(function(){
-        $(".navbar ul").slideToggle();
-      });
-
-      // Handle nav-item clicks
-      $(".nav-item").click(function(){
-        // Hide galleries, page content, home image, and any open info boxes
-        $(".gallery, .page-content, .info-box").hide();
-        $("#home-image").hide();
-        // Hide the mobile menu if open (for small screens)
-        if ($(window).width() < 768) {
-          $(".navbar ul").slideUp();
-        }
-
-
-        // If the nav item has a data-target, show that content; otherwise show gallery
-        if ($(this).data("target")) {
-          $("#" + $(this).data("target")).fadeIn();
-        } else {
-          var galleryId = $(this).attr("id").replace("-btn", "-gallery");
-          $("#" + galleryId).fadeIn();
-        }
-      });
-
-      // Handle Return Home button click
-      $(document).on("click", ".return-home", function(){
-        $(".gallery, .page-content, .info-box").fadeOut(); // Hide all relevant elements
-        $("#home-image").fadeIn(); // Show the home image
-      });
-
-
-      // Adjust all nav items to have the same width as the largest button.
-      if ($(window).width() > 768) {
-        var maxWidth = 0;
-        $(".navbar li").each(function(){
-          var currentWidth = $(this).outerWidth();
-          if (currentWidth > maxWidth) {
-            maxWidth = currentWidth;
-          }
+        // Toggle menu when hamburger icon is clicked (on small screens)
+        $(".menu-icon").click(function(){
+            $(".navbar ul").slideToggle();
         });
-        $(".navbar li").css("width", maxWidth + "px");
-      }
+
+        // Handle nav-item clicks
+        $(".nav-item").click(function(){
+            // Hide galleries, page content, home image, and any open info boxes
+            $(".gallery, .page-content, .info-box").hide();
+            $("#home-image").hide();
+            // Hide the mobile menu if open (for small screens)
+            if ($(window).width() < 768) {
+                $(".navbar ul").slideUp();
+            }
+
+
+            // If the nav item has a data-target, show that content; otherwise show gallery
+            if ($(this).data("target")) {
+                $("#" + $(this).data("target")).fadeIn();
+            } else {
+                var galleryId = $(this).attr("id").replace("-btn", "-gallery");
+                $("#" + galleryId).fadeIn();
+            }
+        });
+
+        // Handle Return Home button click
+        $(document).on("click", ".return-home", function(){
+            $(".gallery, .page-content, .info-box").fadeOut(); // Hide all relevant elements
+            $("#home-image").fadeIn(); // Show the home image
+        });
+
+
+        // Adjust all nav items to have the same width as the largest button.
+        if ($(window).width() > 768) {
+            var maxWidth = 0;
+            $(".navbar li").each(function(){
+                var currentWidth = $(this).outerWidth();
+                if (currentWidth > maxWidth) {
+                    maxWidth = currentWidth;
+                }
+            });
+            $(".navbar li").css("width", maxWidth + "px");
+        }
 
     });
-  </script>
-
+</script>
 </body>
 </html>
