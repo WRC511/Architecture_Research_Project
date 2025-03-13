@@ -32,7 +32,7 @@ body {
 }
 
 #home-title:hover {
-    font-size: 2.7em; /* Slightly increase size */
+    font-size: 2.2em; /* Slightly increase size */
     background-color: rgba(255, 255, 255, 0.2); /* Light highlight */
     box-shadow: 0px 4px 10px rgba(255,255,255,0.5);
 }
@@ -92,7 +92,7 @@ body {
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
-    /* NAVBAR: Keep this from your original code */
+    /* NAVBAR: Mobile-friendly adjustments */
     .menu-icon {
         display: block;
     }
@@ -106,26 +106,65 @@ body {
         margin: 5px 0;
     }
 
-    /* NEW: Gallery Fixes for Mobile Screens */
+    /* FIX: Ensure Navbar expands properly */
+    .navbar ul.active {
+        display: flex !important; /* Forces visibility when toggled */
+    }
+
+    /* GALLERY LAYOUT FIXES */
     .gallery-item {
-        flex-direction: column; /* Stack image above info box */
-        align-items: center; /* Center content for better look */
+        flex-direction: column !important; /* Stack image above info box */
+        align-items: center !important; /* Keep content centered */
+        width: 100% !important;
+        text-align: center; /* Center text content */
     }
 
+    /* Ensure gallery images resize properly */
     .gallery-image {
-        width: 100%; /* Make image take full width */
-        margin-right: 0; /* Remove margin that was pushing it */
+        width: 100% !important; /* Full width for mobile */
+        max-width: 500px !important; /* Keep a reasonable size */
+        margin-right: 0 !important; /* Remove spacing */
     }
 
+    /* Ensure text boxes resize properly */
     .info-box {
-        width: 95%; /* Make it take up more space */
-        max-width: 600px; /* Prevent it from stretching too much */
-        text-align: left; /* Keep text readable */
-        margin-top: 10px;
-        padding: 15px; /* Give some breathing room */
-        word-wrap: break-word; /* Ensure long words don’t break layout */
+        width: 90% !important; /* Keep text box wide but not too much */
+        max-width: 700px !important; /* Prevent excessive stretching */
+        text-align: left !important; /* Keep readable formatting */
+        margin-top: 10px !important; /* Space between image & text */
+        padding: 15px !important;
+        word-wrap: normal !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.5 !important; /* Improve readability */
+    }
+
+    /* HOME PAGE IMAGE: Ensure it resizes well */
+    .home-image {
+        width: 100% !important; /* Stretch to full width */
+        max-width: 700px !important;
+    }
+
+    /* TITLE: Keep it visible and interactive */
+    #home-title {
+        font-size: 1.8em !important; /* Adjust size for smaller screens */
+        padding: 5px 10px;
+    }
+
+    /* BUTTONS: Make sure return buttons and nav items are tappable */
+    .return-home,
+    .navbar li {
+        font-size: 1.2em !important;
+        padding: 10px 15px !important;
+    }
+
+    /* Fix hover effects on touch devices */
+    button:hover, 
+    .navbar li:hover {
+        background-color: #5a9bd5 !important;
+        transform: none !important; /* Prevent scaling on mobile */
     }
 }
+
 
 /* Home Screen Image */
 .home-image {
