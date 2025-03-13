@@ -92,6 +92,7 @@ body {
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
+    /* NAVBAR: Keep this from your original code */
     .menu-icon {
         display: block;
     }
@@ -103,6 +104,23 @@ body {
     .navbar li {
         width: 100%;
         margin: 5px 0;
+    }
+
+    /* NEW: Gallery Fixes for Mobile Screens */
+    .gallery-item {
+        flex-direction: column; /* Stack image above info box */
+        align-items: center; /* Center content for better look */
+    }
+
+    .gallery-image {
+        width: 100%; /* Make image take full width */
+        margin-right: 0; /* Remove margin that was pushing it */
+    }
+
+    .info-box {
+        width: 90%; /* Reduce width for better readability */
+        text-align: center; /* Center text */
+        margin-top: 10px; /* Add spacing between image and text */
     }
 }
 
@@ -138,6 +156,7 @@ body {
     margin-bottom: 20px;
     width: 90%;
     max-width: 1200px;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
 .gallery-image {
