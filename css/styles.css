@@ -10,35 +10,31 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3), inset 0 0 30px rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3),
+                inset 0 0 30px rgba(255,255,255,0.2);
 }
 
 .container {
     margin-top: 100px; /* Space for fixed navbar */
 }
 
-.header-container {
-    margin-top: 10px;
-}
-
-/* Website Title (Clickable + Hover Effect) */
+/* ✅ Website Title - Clickable & Hover Effect */
 #home-title {
-    font-size: 2.7em;
+    font-size: 2.5em;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
-    font-weight: bold;
 }
 
 #home-title:hover {
-    font-size: 2.9em; /* Slightly increase size */
+    font-size: 2.7em;
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0px 4px 10px rgba(255,255,255,0.5);
 }
 
-/* Fixed Navigation Bar */
+/* ✅ Fixed Navigation Bar */
 .navbar {
     position: fixed;
     top: 0;
@@ -54,7 +50,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Hamburger Menu */
+/* ✅ Hamburger menu icon - Hidden on large screens */
 .menu-icon {
     font-size: 30px;
     cursor: pointer;
@@ -71,14 +67,14 @@ body {
     align-items: center;
 }
 
-/* Navbar Items (Hover Effect Included) */
+/* ✅ Navbar Items - Hover Effect */
 .navbar li {
     background-color: steelblue;
     color: white;
     box-shadow: 0 0 10px rgba(70,130,180,0.5);
     background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
     margin: 0 10px;
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -91,7 +87,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Home Screen Image */
+/* ✅ Home Screen Image */
 .home-image {
     width: 80%;
     max-width: 900px;
@@ -101,7 +97,7 @@ body {
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
 }
 
-/* Gallery & Page Content */
+/* ✅ Gallery Container */
 .gallery, .page-content {
     display: none;
     margin-top: 20px;
@@ -116,20 +112,21 @@ body {
     width: 100%;
 }
 
-/* Gallery Item (Fixed Layout) */
+/* ✅ Image & Info Box Layout Fix */
 .gallery-item {
     display: flex;
-    align-items: flex-start; /* Align images & text at the top */
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    gap: 20px; /* Adds spacing between image & text */
+    gap: 20px;
 }
 
-/* Image Box: Keep Size Consistent */
+/* ✅ Image Box - Keep Size Correct */
 .gallery-image {
-    flex: 0 0 auto; /* Prevents it from stretching */
-    max-width: 50%; /* Image takes half the space */
+    flex: 0 0 auto;
+    width: 50%;
+    max-width: 600px;
     height: auto;
     border-radius: 5px;
     border: 2px solid white;
@@ -138,36 +135,28 @@ body {
     overflow: hidden;
 }
 
-/* Image Properties */
+/* ✅ Ensure Image Fills Box */
 .gallery-image img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Keeps the image’s original aspect ratio */
+    object-fit: contain;
     display: block;
 }
 
-/* Image Hover */
-.gallery-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-}
-
-.gallery-image:hover img {
-    filter: brightness(1.2);
-}
-
-/* Info Box: Adjust Width to Fit Content */
+/* ✅ Info Box - Ensure Proper Display */
 .info-box {
-    flex: 1; /* Allows it to take up remaining space */
+    flex: 1;
     background-color: rgba(255,255,255,0.1);
     color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
     text-align: left;
+    min-width: 300px;
+    display: block;
 }
 
-/* Page Content Styling */
+/* ✅ Page Content Styling */
 .page-content {
     width: 80%;
     max-width: 800px;
@@ -178,9 +167,10 @@ body {
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
     text-align: left;
+    position: relative;
 }
 
-/* Return Home Button */
+/* ✅ Return Home Button */
 .return-home {
     background-color: steelblue;
     color: white;
@@ -204,7 +194,17 @@ body {
     transform: scale(1.05);
 }
 
-/* Image Overlay for Enlarging */
+/* ✅ General Button Hover Effect */
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #5a9bd5;
+    transform: scale(1.05);
+}
+
+/* ✅ Image Overlay */
 .image-overlay {
     position: fixed;
     top: 0;
@@ -236,9 +236,8 @@ body {
     font-size: 18px;
 }
 
-/* Responsive Adjustments for Small Screens */
+/* ✅ Responsive Fixes */
 @media screen and (max-width: 768px) {
-    /* NAVBAR */
     .menu-icon {
         display: block;
     }
@@ -252,11 +251,11 @@ body {
         margin: 5px 0;
     }
 
-    /* Gallery Layout for Mobile */
     .gallery-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        width: 100%;
     }
 
     .gallery-image {
@@ -271,14 +270,6 @@ body {
         text-align: left;
         margin-top: 10px;
         padding: 15px;
-    }
-
-    /* Adjust Title & Buttons */
-    #home-title {
-        font-size: 2em;
-    }
-    .return-home,
-    .navbar li {
-        font-size: 1.2em;
+        display: block;
     }
 }
