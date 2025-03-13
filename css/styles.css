@@ -118,9 +118,12 @@ body {
     }
 
     .info-box {
-        width: 90%; /* Reduce width for better readability */
-        text-align: center; /* Center text */
-        margin-top: 10px; /* Add spacing between image and text */
+        width: 95%; /* Make it take up more space */
+        max-width: 600px; /* Prevent it from stretching too much */
+        text-align: left; /* Keep text readable */
+        margin-top: 10px;
+        padding: 15px; /* Give some breathing room */
+        word-wrap: break-word; /* Ensure long words don’t break layout */
     }
 }
 
