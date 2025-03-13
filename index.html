@@ -229,82 +229,10 @@
 
 </div>
 
-<script>
-    $(document).ready(function () {
-        // Toggle menu when hamburger icon is clicked (on small screens)
-        $(".menu-icon").click(function () {
-            $(".navbar ul").slideToggle();
-        });
+<!-- Bootstrap JavaScript (for mobile menu toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
 
-        // Handle nav-item clicks
-        $(".nav-item").click(function () {
-            // Hide all galleries, page content, home image, and any open info boxes
-            $(".gallery, .page-content, .info-box").hide();
-            $("#home-image").hide();
-
-            // Hide the mobile menu if open (for small screens)
-            if ($(window).width() < 768) {
-                $(".navbar ul").slideUp();
-            }
-
-            // If the nav item has a data-target attribute, show that content; otherwise show gallery
-            if ($(this).data("target")) {
-                $("#" + $(this).data("target")).fadeIn(); // Show specific page content
-            } else {
-                var galleryId = $(this).attr("id").replace("-btn", "-gallery"); // Get gallery ID
-                $("#" + galleryId).fadeIn(); // Show the corresponding gallery
-            }
-        });
-
-        // Handle Return Home button click
-        $(document).on("click", ".return-home", function () {
-            $(".gallery, .page-content, .info-box").fadeOut(); // Hide all relevant elements
-            $("#home-image").fadeIn(); // Show the home image
-        });
-
-        // Adjust all nav items to have the same width as the largest button
-        function adjustNavButtonWidths() {
-            var maxWidth = 0;
-            $(".navbar li").each(function () {
-                var currentWidth = $(this).outerWidth();
-                if (currentWidth > maxWidth) {
-                    maxWidth = currentWidth;
-                }
-            });
-            $(".navbar li").css("width", maxWidth + "px");
-        }
-
-        // Call adjustNavButtonWidths on page load and window resize
-        adjustNavButtonWidths();
-        $(window).resize(function () {
-            adjustNavButtonWidths();
-        });
-
-        // New functionality for clickable images
-        $('.gallery-image img').click(function() {
-            openLargeImage($(this).attr('src'));
-        });
-
-        function openLargeImage(src) {
-            var overlay = $('<div class="image-overlay"></div>');
-            var largeImage = $('<img src="' + src + '" class="large-image">');
-            var closeButton = $('<button class="close-button">X</button>');
-            
-            overlay.append(largeImage).append(closeButton);
-            $('body').append(overlay);
-            
-            closeButton.click(function() {
-                overlay.remove();
-            });
-
-            // Close overlay when clicking outside the image
-            overlay.click(function(e) {
-                if (e.target === this) {
-                    overlay.remove();
-                }
-            });
-        }
-    });
-</script>
 </body>
 </html>
