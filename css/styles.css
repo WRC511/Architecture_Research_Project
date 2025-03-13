@@ -120,11 +120,10 @@ body {
         text-align: center; /* Center text content */
     }
 
-    /* Ensure gallery images resize properly */
     .gallery-image {
-        width: 100% !important; /* Full width for mobile */
-        max-width: 500px !important; /* Keep a reasonable size */
-        margin-right: 0 !important; /* Remove spacing */
+        max-width: 100%; /* Makes images take full width on small screens */
+        height: auto; /* Keeps aspect ratio */
+        margin-right: 0;
     }
 
     /* Ensure text boxes resize properly */
@@ -203,12 +202,14 @@ body {
 }
 
 .gallery-image {
-    width: 500px;
-    height: auto;
+    max-width: 50%; /* Prevents image from being too large */
+    height: auto; /* Keeps aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     border: 2px solid white;
     cursor: pointer;
-    display: block;
     margin-right: 20px;
     flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
