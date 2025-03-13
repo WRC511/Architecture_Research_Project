@@ -10,8 +10,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3),
-    inset 0 0 30px rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3), inset 0 0 30px rgba(255,255,255,0.2);
 }
 
 .container {
@@ -22,19 +21,20 @@ body {
     margin-top: 10px;
 }
 
-/* Make website title clickable and add hover effect */
+/* Website Title (Clickable + Hover Effect) */
 #home-title {
-    font-size: 2.5em;
+    font-size: 2.7em;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 #home-title:hover {
-    font-size: 2.7em; /* Slightly increase size */
-    background-color: rgba(255, 255, 255, 0.2); /* Light highlight */
+    font-size: 2.9em; /* Slightly increase size */
+    background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0px 4px 10px rgba(255,255,255,0.5);
 }
 
@@ -54,7 +54,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Hamburger menu icon; hidden on large screens */
+/* Hamburger Menu */
 .menu-icon {
     font-size: 30px;
     cursor: pointer;
@@ -71,14 +71,14 @@ body {
     align-items: center;
 }
 
-/* Navbar items hover effect */
+/* Navbar Items (Hover Effect Included) */
 .navbar li {
     background-color: steelblue;
     color: white;
     box-shadow: 0 0 10px rgba(70,130,180,0.5);
     background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
     margin: 0 10px;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -88,83 +88,8 @@ body {
 
 .navbar li:hover {
     background-color: #4682b4;
-    transform: scale(1.05); /* Slightly enlarges on hover */
+    transform: scale(1.05);
 }
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    /* NAVBAR: Mobile-friendly adjustments */
-    .menu-icon {
-        display: block;
-    }
-    .navbar ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-    .navbar li {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    /* FIX: Ensure Navbar expands properly */
-    .navbar ul.active {
-        display: flex !important; /* Forces visibility when toggled */
-    }
-
-    /* Make the gallery items stack vertically */
-    .gallery-item {
-        flex-direction: column; /* Stack image above info box */
-        align-items: center; /* Center content */
-        width: 100%;
-        text-align: left; /* Keep text aligned properly */
-    }
-
-    /* Ensure images resize correctly on small screens */
-    .gallery-image {
-        width: 100%; /* Full width on small screens */
-        height: auto; /* Keep aspect ratio */
-        max-width: 500px; /* Prevents images from getting too large */
-        margin-right: 0; /* Remove spacing issue */
-    }
-
-    /* Make info boxes resize correctly without stretching */
-    .info-box {
-        width: 90%; /* Keep the width balanced */
-        max-width: 600px; /* Prevent excessive stretching */
-        text-align: left; /* Keep readable formatting */
-        margin-top: 10px; /* Add some space between image and text */
-        padding: 15px;
-        line-height: 1.6; /* Improve readability */
-    }
-
-    /* HOME PAGE IMAGE: Ensure it resizes well */
-    .home-image {
-        width: 100% !important; /* Stretch to full width */
-        max-width: 700px !important;
-    }
-
-    /* TITLE: Keep it visible and interactive */
-    #home-title {
-        font-size: 1.8em !important; /* Adjust size for smaller screens */
-        padding: 5px 10px;
-    }
-
-    /* BUTTONS: Make sure return buttons and nav items are tappable */
-    .return-home,
-    .navbar li {
-        font-size: 1.2em !important;
-        padding: 10px 15px !important;
-    }
-
-    /* Fix hover effects on touch devices */
-    button:hover, 
-    .navbar li:hover {
-        background-color: #5a9bd5 !important;
-        transform: none !important; /* Prevent scaling on mobile */
-    }
-}
-
 
 /* Home Screen Image */
 .home-image {
@@ -176,7 +101,7 @@ body {
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
 }
 
-/* Galleries and Page Content */
+/* Gallery & Page Content */
 .gallery, .page-content {
     display: none;
     margin-top: 20px;
@@ -191,61 +116,51 @@ body {
     width: 100%;
 }
 
+/* Gallery Item (Fixed Layout) */
 .gallery-item {
     display: flex;
-    align-items: stretch; /* Ensures equal height for both sections */
+    align-items: flex-start; /* Align images & text at the top */
     justify-content: flex-start;
-    gap: 20px; /* Adds spacing between image and text */
-    margin-bottom: 20px;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
+    gap: 20px; /* Adds spacing between image & text */
 }
 
+/* Image Box: Keep Size Consistent */
 .gallery-image {
-    width: 50%; /* Image takes half the space */
-    max-width: 600px; /* Prevents excessive stretching */
-    height: auto; /* Maintain aspect ratio */
+    flex: 0 0 auto; /* Prevents it from stretching */
+    max-width: 50%; /* Image takes half the space */
+    height: auto;
     border-radius: 5px;
     border: 2px solid white;
     cursor: pointer;
     display: block;
-    flex-shrink: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
-.gallery-image img {
-    width: 100%; /* Ensure image fills container */
-    height: 100%; /* Stretch to fill height */
-    object-fit: cover; /* Prevents weird aspect ratios */
-    border-radius: 5px;
-    display: block;
-    transition: filter 0.3s ease;
-}
-
-.gallery-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-}
-
+/* Image Properties */
 .gallery-image img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
-    border: 2px solid white;
+    object-fit: contain; /* Keeps the image’s original aspect ratio */
     display: block;
-    transition: filter 0.3s ease;
+}
+
+/* Image Hover */
+.gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
 }
 
 .gallery-image:hover img {
     filter: brightness(1.2);
 }
 
+/* Info Box: Adjust Width to Fit Content */
 .info-box {
-    width: calc(100% - 520px);
+    flex: 1; /* Allows it to take up remaining space */
     background-color: rgba(255,255,255,0.1);
     color: white;
-    align-items: flex-start;
-    display: block !important;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
@@ -263,7 +178,6 @@ body {
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(255,255,255,0.3);
     text-align: left;
-    position: relative;
 }
 
 /* Return Home Button */
@@ -290,16 +204,7 @@ body {
     transform: scale(1.05);
 }
 
-/* General button hover effect */
-button {
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: #5a9bd5;
-    transform: scale(1.05);
-}
-
+/* Image Overlay for Enlarging */
 .image-overlay {
     position: fixed;
     top: 0;
@@ -329,4 +234,51 @@ button:hover {
     padding: 10px 15px;
     cursor: pointer;
     font-size: 18px;
+}
+
+/* Responsive Adjustments for Small Screens */
+@media screen and (max-width: 768px) {
+    /* NAVBAR */
+    .menu-icon {
+        display: block;
+    }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar li {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Gallery Layout for Mobile */
+    .gallery-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gallery-image {
+        width: 100%;
+        max-width: 500px;
+        margin-right: 0;
+    }
+
+    .info-box {
+        width: 95%;
+        max-width: 600px;
+        text-align: left;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    /* Adjust Title & Buttons */
+    #home-title {
+        font-size: 2em;
+    }
+    .return-home,
+    .navbar li {
+        font-size: 1.2em;
+    }
 }
