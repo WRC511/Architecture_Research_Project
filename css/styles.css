@@ -112,30 +112,30 @@ body {
         display: flex !important; /* Forces visibility when toggled */
     }
 
-    /* GALLERY LAYOUT FIXES */
+    /* Make the gallery items stack vertically */
     .gallery-item {
-        flex-direction: column !important; /* Stack image above info box */
-        align-items: center !important; /* Keep content centered */
-        width: 100% !important;
-        text-align: center; /* Center text content */
+        flex-direction: column; /* Stack image above info box */
+        align-items: center; /* Center content */
+        width: 100%;
+        text-align: left; /* Keep text aligned properly */
     }
 
+    /* Ensure images resize correctly on small screens */
     .gallery-image {
-        max-width: 100%; /* Makes images take full width on small screens */
-        height: auto; /* Keeps aspect ratio */
-        margin-right: 0;
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Keep aspect ratio */
+        max-width: 500px; /* Prevents images from getting too large */
+        margin-right: 0; /* Remove spacing issue */
     }
 
-    /* Ensure text boxes resize properly */
+    /* Make info boxes resize correctly without stretching */
     .info-box {
-        width: 90% !important; /* Keep text box wide but not too much */
-        max-width: 700px !important; /* Prevent excessive stretching */
-        text-align: left !important; /* Keep readable formatting */
-        margin-top: 10px !important; /* Space between image & text */
-        padding: 15px !important;
-        word-wrap: normal !important;
-        overflow-wrap: break-word !important;
-        line-height: 1.5 !important; /* Improve readability */
+        width: 90%; /* Keep the width balanced */
+        max-width: 600px; /* Prevent excessive stretching */
+        text-align: left; /* Keep readable formatting */
+        margin-top: 10px; /* Add some space between image and text */
+        padding: 15px;
+        line-height: 1.6; /* Improve readability */
     }
 
     /* HOME PAGE IMAGE: Ensure it resizes well */
@@ -193,12 +193,12 @@ body {
 
 .gallery-item {
     display: flex;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: stretch; /* Keeps both items same height */
+    justify-content: space-between; /* Ensures spacing is even */
     margin-bottom: 20px;
     width: 90%;
     max-width: 1200px;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    flex-wrap: nowrap; /* Prevents the text from dropping under the image */
 }
 
 .gallery-image {
