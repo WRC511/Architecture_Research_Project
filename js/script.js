@@ -52,8 +52,7 @@ $(document).ready(function () {
         $(".gallery, .page-content, .info-box").fadeOut(); // Hide all content
         $("#home-image").fadeIn(); // Show the home image
     });
-
-    // Clickable images - enlarging
+***
     $('.gallery-image img').click(function() {
         openLargeImage($(this).attr('src'));
     });
@@ -63,25 +62,23 @@ $(document).ready(function () {
         var largeImage = $('<img src="' + src + '" class="large-image">');
         var closeButton = $('<button class="close-button">&times;</button>');
 
-        overlay.append(largeImage).append(closeButton);
+    overlay.append(largeImage).append(closeButton);
         $('body').append(overlay);
+     
+    // Prevent scrolling when overlay is open
+    $('body').css('overflow', 'hidden');
 
-        closeButton.click(function() {
-            overlay.remove();
-        });
-
-        overlay.click(function(e) {
-            if (e.target === this) {
-                overlay.remove();
-            }
-        });
-
-        // Prevent scrolling when overlay is open
-        $('body').css('overflow', 'hidden');
-
-        // Re-enable scrolling when overlay is closed
-        overlay.on('remove', function() {
-            $('body').css('overflow', '');
-        });
+    function closeOverlay() {
+        overlay.remove();
+        $('body').css('overflow', '');
     }
+
+    closeButton.click(closeOverlay);
+
+    overlay.click(function(e) {
+        if (e.target === this) {
+            closeOverlay();
+        }
+    });
+  }
 });
