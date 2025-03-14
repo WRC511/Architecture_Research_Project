@@ -366,4 +366,17 @@ button:hover {
         display: block !important;
         visibility: visible !important;
     }
+
+    h1 {
+        font-size: 1.4rem; /* Adjust font size if needed */
+        padding: 0 10px; /* Reduce padding on smaller screens */
+    }
+
+    h1::before,
+    h1::after {
+        width: 20px; /* Shorter lines on smaller screens */
+        margin: 0 5px; /* Adjust margin on smaller screens */
+    }
+
+
 }
