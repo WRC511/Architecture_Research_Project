@@ -69,17 +69,28 @@ body {
 }
 
 h1 {
-  font-size: 1.6rem; /* Large font size for section titles */
-  color: steelblue; /* Dark text color for contrast */
-  text-align: left; /* Center the text */
-  position: relative;
+    font-size: 1.6rem;
+    color: steelblue;
+    text-align: center; /* Keep the text centered */
+    position: relative;
+    text-shadow: 0 0 5px rgba(100, 100, 100, 0.6),
+                 0 0 10px rgba(100, 100, 100, 0.4);
+    margin: 10px auto;
+    overflow: hidden; /* Ensure lines don't overflow */
+    display: inline-block; /* Needed to properly align lines */
+    padding: 0 20px; /* Add horizontal padding to separate lines from text */
+}
 
-  /* Darker grey glassy glow effect */
-  text-shadow: 0 0 5px rgba(100, 100, 100, 0.6), /* Soft glow around the text */
-               0 0 10px rgba(100, 100, 100, 0.4); /* Slightly larger glow */
-
-  /* Optional: add spacing around the title */
-  margin: 10px auto;
+h1::before,
+h1::after {
+    content: '';
+    display: inline-block;
+    width: 40px; /* Adjust the length of the lines */
+    height: 1px; /* Adjust the thickness of the lines */
+    background-color: steelblue; /* Adjust the color of the lines */
+    position: relative; /* To align with the text */
+    vertical-align: middle; /* Align with text */
+    margin: 0 10px; /* Add horizontal spacing between lines and text */
 }
 
 /* ✅ Hamburger menu icon - Hidden on large screens */
