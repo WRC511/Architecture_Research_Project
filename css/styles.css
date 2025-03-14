@@ -18,14 +18,14 @@ body {
     margin-top: 100px; /* Space for fixed navbar */
 }
 h1 {
-  font-size: 3rem; /* Large font size for section titles */
-  color: #333; /* Dark text color for contrast */
+  font-size: 1.8rem; /* Large font size for section titles */
+  color: steelblue; /* Dark text color for contrast */
   text-align: center; /* Center the text */
   position: relative;
 
-  /* Glassy grey glow effect */
-  text-shadow: 0 0 5px rgba(200, 200, 200, 0.6), /* Soft glow around the text */
-               0 0 10px rgba(200, 200, 200, 0.4); /* Slightly larger glow */
+  /* Darker grey glassy glow effect */
+  text-shadow: 0 0 5px rgba(100, 100, 100, 0.6), /* Soft glow around the text */
+               0 0 10px rgba(100, 100, 100, 0.4); /* Slightly larger glow */
 
   /* Optional: add spacing around the title */
   margin: 10px auto;
