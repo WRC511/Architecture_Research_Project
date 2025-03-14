@@ -18,7 +18,7 @@ body {
     margin-top: 100px; /* Space for fixed navbar */
 }
 h1 {
-  font-size: 1.8rem; /* Large font size for section titles */
+  font-size: 1.6rem; /* Large font size for section titles */
   color: steelblue; /* Dark text color for contrast */
   text-align: center; /* Center the text */
   position: relative;
