@@ -38,7 +38,7 @@ body {
 #home-title {
     font-size: 2.5em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    /*transition: all 0.3s ease; */
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
@@ -302,7 +302,7 @@ button:hover {
     }
     
     #home-title {
-    font-size: 1.5em; /* Adjusted font size for smaller screens */
+    font-size: 1.5em !important; /* Adjusted font size for smaller screens */
     }
     .navbar-container {
         padding-top: 80px; /* Adjust this value based on your title's height */
