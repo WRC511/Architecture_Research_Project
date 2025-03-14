@@ -61,7 +61,7 @@ $(document).ready(function () {
     function openLargeImage(src) {
         var overlay = $('<div class="image-overlay"></div>');
         var largeImage = $('<img src="' + src + '" class="large-image">');
-        var closeButton = $('<button class="close-button">X</button>');
+        var closeButton = $('<button class="close-button">&times;</button>');
 
         overlay.append(largeImage).append(closeButton);
         $('body').append(overlay);
@@ -74,6 +74,14 @@ $(document).ready(function () {
             if (e.target === this) {
                 overlay.remove();
             }
+        });
+
+        // Prevent scrolling when overlay is open
+        $('body').css('overflow', 'hidden');
+
+        // Re-enable scrolling when overlay is closed
+        overlay.on('remove', function() {
+            $('body').css('overflow', '');
         });
     }
 });
