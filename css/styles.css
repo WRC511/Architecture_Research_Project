@@ -179,7 +179,8 @@ h1 {
     padding: 20px;
     margin-bottom: 20px !important; 
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(100, 100, 100, 0.6);
+    box-shadow: 0 0 5px rgba(100, 100, 100, 0.6),
+                0 0 10px rgba(100, 100, 100, 0.4);
     text-align: left;
     min-width: 300px;
     display: block !important;
