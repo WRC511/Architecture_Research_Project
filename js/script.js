@@ -52,7 +52,8 @@ $(document).ready(function () {
         $(".gallery, .page-content, .info-box").fadeOut(); // Hide all content
         $("#home-image").fadeIn(); // Show the home image
     });
-***
+
+    // Clickable images - enlarging
     $('.gallery-image img').click(function() {
         openLargeImage($(this).attr('src'));
     });
@@ -62,23 +63,23 @@ $(document).ready(function () {
         var largeImage = $('<img src="' + src + '" class="large-image">');
         var closeButton = $('<button class="close-button">&times;</button>');
 
-    overlay.append(largeImage).append(closeButton);
+        overlay.append(largeImage).append(closeButton);
         $('body').append(overlay);
      
-    // Prevent scrolling when overlay is open
-    $('body').css('overflow', 'hidden');
+        // Prevent scrolling when overlay is open
+        $('body').css('overflow', 'hidden');
 
-    function closeOverlay() {
-        overlay.remove();
-        $('body').css('overflow', '');
-    }
-
-    closeButton.click(closeOverlay);
-
-    overlay.click(function(e) {
-        if (e.target === this) {
-            closeOverlay();
+        function closeOverlay() {
+            overlay.remove();
+            $('body').css('overflow', '');
         }
-    });
-  }
+
+        closeButton.click(closeOverlay);
+
+        overlay.click(function(e) {
+            if (e.target === this) {
+                closeOverlay();
+            }
+        });
+    }
 });
