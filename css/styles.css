@@ -26,6 +26,15 @@ body {
     z-index: 1001; /* Increased z-index to be above navbar */
 }
 
+.navabr-container {
+    position: fixed;
+    top: 0;
+    padding-top: 20px
+    padding-bottom: 20px;
+    left: 0;
+    width: 100%;
+}
+
 #home-title {
     font-size: 2.5em;
     cursor: pointer;
