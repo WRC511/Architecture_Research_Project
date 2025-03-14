@@ -20,6 +20,7 @@ body {
 .header-container {
     position: fixed;
     top: 0;
+    padding-bottom: 20px;
     left: 0;
     width: 100%;
     z-index: 1001; /* Increased z-index to be above navbar */
@@ -293,6 +294,7 @@ button:hover {
     
     #home-title {
     font-size: 1.5em; /* Adjusted font size for smaller screens */
+    padding-bottom: 40px;
     }
     .navbar {
         top: 60px; /* Adjust this value based on your title's height */
