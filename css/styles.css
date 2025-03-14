@@ -1,5 +1,4 @@
 /* This file contains all of the code that determines the style for the website */
-
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -17,6 +16,14 @@ body {
 .container {
     margin-top: 100px; /* Space for fixed navbar */
 }
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 h1 {
   font-size: 1.6rem; /* Large font size for section titles */
   color: steelblue; /* Dark text color for contrast */
