@@ -161,7 +161,7 @@ body {
 .info-box {
     flex: 1;
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: steelblue;
     padding: 20px;
     margin-bottom: 20px !important; 
     border-radius: 10px;
@@ -177,7 +177,7 @@ body {
     width: 80%;
     max-width: 800px;
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: steelblue;
     padding: 30px;
     margin: 50px auto;
     border-radius: 15px;
@@ -244,8 +244,8 @@ button:hover {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: white;
-    color: black;
+    background-color: steelblue;
+    color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
