@@ -45,7 +45,7 @@ body {
 
 .navbar {
     position: fixed;
-    top: 40px; /* Adjust this value based on the height of your title */
+    top: 90px; /* Adjust this value based on the height of your title */
     left: 0;
     width: 100%;
     background-color: #D3D3D3;
