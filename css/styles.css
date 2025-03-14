@@ -290,14 +290,31 @@ button:hover {
     .menu-icon {
         display: block;
     }
+    
+    #home-title {
+    font-size: 1.5em; /* Adjusted font size for smaller screens */
+    }
+    .navbar {
+        top: 60px; /* Adjust this value based on your title's height */
+    }
+    
     .navbar ul {
         display: none;
         flex-direction: column;
         width: 100%;
+        position: absolute;
+        top: 100%; /* Position the menu below the hamburger icon */
+        left: 0;
+        background-color: #your-background-color;
     }
+
     .navbar li {
         width: 100%;
         margin: 5px 0;
+    }
+    
+    body {
+    padding-top: 50px; /* Adjust based on combined height of title and navbar */
     }
 
     .gallery-item {
