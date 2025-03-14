@@ -61,7 +61,7 @@ body {
 h1 {
   font-size: 1.6rem; /* Large font size for section titles */
   color: steelblue; /* Dark text color for contrast */
-  text-align: center; /* Center the text */
+  text-align: left; /* Center the text */
   position: relative;
 
   /* Darker grey glassy glow effect */
