@@ -61,24 +61,18 @@ $(document).ready(function () {
     function openLargeImage(src) {
         var overlay = $('<div class="image-overlay"></div>');
         var largeImage = $('<img src="' + src + '" class="large-image">');
-        var closeButton = $('<button class="close-button">&times;</button>');
+        var closeButton = $('<button class="close-button">X</button>');
 
         overlay.append(largeImage).append(closeButton);
         $('body').append(overlay);
-     
-        // Prevent scrolling when overlay is open
-        $('body').css('overflow', 'hidden');
 
-        function closeOverlay() {
+        closeButton.click(function() {
             overlay.remove();
-            $('body').css('overflow', '');
-        }
-
-        closeButton.click(closeOverlay);
+        });
 
         overlay.click(function(e) {
             if (e.target === this) {
-                closeOverlay();
+                overlay.remove();
             }
         });
     }
