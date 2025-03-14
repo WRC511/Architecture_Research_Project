@@ -7,7 +7,7 @@ body {
     text-align: center;
     overflow-y: auto;
     margin: 0;
-    padding: 20px;
+    padding: 40px;
     min-height: 100vh;
     box-shadow: 0 0 15px rgba(255,255,255,0.3),
                 inset 0 0 30px rgba(255,255,255,0.2);
@@ -45,7 +45,7 @@ body {
 
 .navbar {
     position: fixed;
-    top: 90px; /* Adjust this value based on the height of your title */
+    top: 80px; /* Adjust this value based on the height of your title */
     left: 0;
     width: 100%;
     background-color: #D3D3D3;
