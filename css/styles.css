@@ -243,28 +243,30 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* ✅ Image Overlay */
+/* ✅ Image Overlay - Fixed with higher z-index */
 .image-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 2000; /* Increased to be above navbar (1000) */
+    cursor: pointer;
 }
 
 .large-image {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
+    z-index: 2001; /* Ensure image is above overlay background */
 }
 
 .close-button {
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     top: 20px;
     right: 20px;
     background-color: steelblue;
@@ -273,6 +275,14 @@ button:hover {
     padding: 10px 15px;
     cursor: pointer;
     font-size: 18px;
+    z-index: 2002; /* Highest z-index */
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+    transform: scale(1.05);
+    background-color: #5a9bd5;
 }
 
 /* ✅ Responsive Fixes */
